@@ -15,6 +15,8 @@ import com.pblgllgs.ems.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
@@ -32,8 +34,40 @@ public class EmployeeServiceImpl implements EmployeeService {
     public EmployeeDto getEmployeeById(Long employeeId) {
         Employee employee = employeeRepository.findById(
                 employeeId).orElseThrow(
-                        () -> new ResourceNotFoundException("User with id: " + employeeId + " not found")
+                () -> new ResourceNotFoundException("User with id: " + employeeId + " not found")
         );
         return EmployeeMapper.employeeToEmployeeDto(employee);
+    }
+
+    @Override
+    public List<EmployeeDto> getAllEmployees() {
+        return employeeRepository
+                .findAll()
+                .stream()
+                .map(
+                        EmployeeMapper::employeeToEmployeeDto
+                ).toList();
+    }
+
+    @Override
+    public EmployeeDto updateEmployee(Long employeeId, EmployeeDto employeeDto) {
+        Employee employee = employeeRepository.findById(
+                employeeId).orElseThrow(
+                () -> new ResourceNotFoundException("User with id: " + employeeId + " not found")
+        );
+        employee.setFirstName(employeeDto.getFirstName());
+        employee.setLastName(employeeDto.getLastName());
+        employee.setEmail(employeeDto.getEmail());
+        Employee updatedEmployee = employeeRepository.save(employee);
+        return EmployeeMapper.employeeToEmployeeDto(updatedEmployee);
+    }
+
+    @Override
+    public void deleteEmployee(Long employeeId) {
+        Employee employee = employeeRepository.findById(
+                employeeId).orElseThrow(
+                () -> new ResourceNotFoundException("User with id: " + employeeId + " not found")
+        );
+        employeeRepository.deleteById(employee.getId());
     }
 }

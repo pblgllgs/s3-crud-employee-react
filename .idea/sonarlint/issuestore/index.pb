@@ -21,3 +21,7 @@ Pems-backend/src/main/java/com/pblgllgs/ems/service/impl/EmployeeServiceImpl.jav
 Mems-backend/src/main/java/com/pblgllgs/ems/controller/EmployeeController.java,a\1\a1a4c00851c33cce57a2ca7aa5324c2059d39a76
 ƒ
 Sems-backend/src/main/java/com/pblgllgs/ems/exception/ResourceNotFoundException.java,4\a\4a25714943aa56bc88f1932b7cc111282bbd30a3
+H
+ems-frontend/src/App.jsx,d\e\dead355d85c8b400f585e3cab16868ce6172c209
+e
+5ems-frontend/src/components/ListEmployeeComponent.jsx,6\1\61733a616ccc38534b0bf575d1c11953ee4efa3f
