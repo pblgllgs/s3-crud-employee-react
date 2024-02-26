@@ -16,6 +16,7 @@ import java.util.List;
  * Created on 25-02-2024
  *
  */
+@CrossOrigin("*")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/departments")
