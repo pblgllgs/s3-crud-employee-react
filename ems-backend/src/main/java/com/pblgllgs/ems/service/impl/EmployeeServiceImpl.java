@@ -13,6 +13,7 @@ import com.pblgllgs.ems.mapper.EmployeeMapper;
 import com.pblgllgs.ems.repository.EmployeeRepository;
 import com.pblgllgs.ems.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +21,9 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
+
+    @Value("${message.exceptions.employee.not-found}")
+    private String message;
 
     private final EmployeeRepository employeeRepository;
 
@@ -34,7 +38,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public EmployeeDto getEmployeeById(Long employeeId) {
         Employee employee = employeeRepository.findById(
                 employeeId).orElseThrow(
-                () -> new ResourceNotFoundException("User with id: " + employeeId + " not found")
+                () -> new ResourceNotFoundException(message+ employeeId)
         );
         return EmployeeMapper.employeeToEmployeeDto(employee);
     }
@@ -53,7 +57,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public EmployeeDto updateEmployee(Long employeeId, EmployeeDto employeeDto) {
         Employee employee = employeeRepository.findById(
                 employeeId).orElseThrow(
-                () -> new ResourceNotFoundException("User with id: " + employeeId + " not found")
+                () -> new ResourceNotFoundException(message+ employeeId)
         );
         employee.setFirstName(employeeDto.getFirstName());
         employee.setLastName(employeeDto.getLastName());
@@ -66,7 +70,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void deleteEmployee(Long employeeId) {
         Employee employee = employeeRepository.findById(
                 employeeId).orElseThrow(
-                () -> new ResourceNotFoundException("User with id: " + employeeId + " not found")
+                () -> new ResourceNotFoundException(message+ employeeId)
         );
         employeeRepository.deleteById(employee.getId());
     }

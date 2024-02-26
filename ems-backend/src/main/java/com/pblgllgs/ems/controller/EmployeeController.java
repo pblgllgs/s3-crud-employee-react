@@ -9,6 +9,7 @@ package com.pblgllgs.ems.controller;
 import com.pblgllgs.ems.dto.EmployeeDto;
 import com.pblgllgs.ems.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,9 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/employees")
 public class EmployeeController {
+
+    @Value("${message.controller.employee.delete.success}")
+    private String messageDeleteSuccess;
 
     private final EmployeeService employeeService;
 
@@ -50,6 +54,6 @@ public class EmployeeController {
     @DeleteMapping("/{employeeId}")
     public ResponseEntity<String> deleteEmployee(@PathVariable("employeeId") Long employeeId){
         employeeService.deleteEmployee(employeeId);
-        return new ResponseEntity<>("Employee deleted successfully",HttpStatus.OK);
+        return new ResponseEntity<>(messageDeleteSuccess,HttpStatus.OK);
     }
 }

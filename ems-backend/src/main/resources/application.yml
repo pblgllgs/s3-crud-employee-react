@@ -12,3 +12,17 @@ spring:
         format_sql: true
     database: mysql
     show-sql: true
+
+message:
+  exceptions:
+    employee:
+      not-found: "Employee not found, with id: "
+    department:
+      not-found: "Department not found, with id: "
+  controller:
+    employee:
+      delete:
+        success: "Deleted successfully"
+    department:
+      delete:
+        success: "Deleted successfully"
