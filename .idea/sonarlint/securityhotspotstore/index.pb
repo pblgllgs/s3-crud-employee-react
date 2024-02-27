@@ -41,13 +41,9 @@ Rems-backend/src/main/java/com/pblgllgs/ems/service/impl/DepartmentServiceImpl.j
 Oems-backend/src/main/java/com/pblgllgs/ems/controller/DepartmentController.java,d\1\d11a68ebb09f257c15c8ec63cb650ac374609797
 €
 Pems-backend/src/main/java/com/pblgllgs/ems/exception/GlobalExceptionHandler.java,2\c\2c6f65c865754804c84c2ec5351570e65fb8e3eb
-z
-Jems-backend/src/main/java/com/pblgllgs/ems/exception/ApiErrorResponse.java,c\d\cdaaf6082e446e5270eea0f03902df4f040f5d78
-}
-Mems-backend/src/main/java/com/pblgllgs/ems/exception/ApiExceptionHandler.java,b\2\b25c0a275adf681fc5ca6a9003876ca3acbb686e
-w
-Gems-backend/src/main/java/com/pblgllgs/ems/exception/FieldErrorDTO.java,5\2\5296a10ce65fe5096e920cd3087a21d1a1dbdf07
-r
-Bems-backend/src/main/java/com/pblgllgs/ems/exception/ErrorDTO.java,3\a\3aa97a00289637acc1d7aec0c23992ded5300459
 w
 Gems-backend/src/main/java/com/pblgllgs/ems/exception/ErrorResponse.java,8\2\82adc1273439636d1f02326791fa0aa97058d11a
+a
+1ems-frontend/src/components/EmployeeComponent.jsx,e\0\e0e0ad4c290a94a46e5d0ccfb5f5b063de4021d1
+\
+,ems-frontend/src/services/EmployeeService.js,8\1\814c5fa86b91e7f86e8cdb0c0fa932d00ef11e9b
